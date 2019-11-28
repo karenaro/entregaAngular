@@ -1,0 +1,48 @@
+<form ngNativevalidate #k= "ngForm" class="form-horizontal form-material" (ngSubmit)="buscar(k)">
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+    
+      <label for="validationCustom01">Buscar Producto</label>
+      <input name="nomb" type="text" class="form-control"  placeholder="Buscar...">
+    </div>
+  </div>
+  <div class="fg-actions d-flex justify-content-between">
+      <div class="buscar-btn">
+      <div class="recover-pass"> 
+        <button class="btn btn-outline-danger" type="submit"> Buscar </button>
+        </div>
+      </div>
+    </div>
+
+    <table class="table">
+      <thead >
+        
+        <tr>
+        
+          <th scope="col" name="nombre" >Nombre Producto</th>
+          <th scope="col" name="cantidad" >Cant Paquete</th>
+          <th scope="col" name="peso" >Peso paquete</th>
+          <th scope="col" name="precio" >Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productos$ | async">
+          <th scope="row"></th>
+          <td>
+            {{ producto._id }}
+          </td>
+          <td>
+          hola
+          </td>
+          <td>
+            como
+          </td>
+          <td>
+            estas
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+</form>
