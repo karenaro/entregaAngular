@@ -1,6 +1,6 @@
-<form ngNativevalidate #k= "ngForm" class="form-horizontal form-material" (ngSubmit)="buscar(k)">
-
   <div class="form-row">
+  <form ngNativevalidate #p= "ngForm" class="form-horizontal form-material" (ngSubmit)="nuevoP(p)">
+    <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationTooltip01">Nombre</label>
       <input ngModel type="text" class="form-control" name="nom" placeholder="Nombre" value="" required>
@@ -14,9 +14,8 @@
       <div class="valid-tooltip">
         Looks good!
       </div>
-    </div>
-  </div>
-  <div class="form-row">
+    </div> 
+ 
     <div class="col-md-6 mb-3">
       <label for="validationTooltip03">Peso</label>
       <input ngModel type="number" class="form-control" name="pesoPaq" placeholder="Peso" required>
@@ -31,16 +30,12 @@
         Please provide a valid Precio.
       </div>
     </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationTooltip05">Lote</label>
-      <input ngModel type="text" class="form-control" name="lote" placeholder="Lote" required>
-      <div class="invalid-tooltip">
-        Please provide a valid Lote.
-      </div>
     </div>
+    <button class="btn btn-outline-danger" type="submit"> Crear </button>
+    </form>
   </div>
-  <button class="btn btn-danger" type="submit"> Crear </button>
-</form>
+  
+
 
 
 

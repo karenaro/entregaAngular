@@ -1,42 +1,40 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from "@angular/router";
-import Swal  from 'sweetalert2';
-import { BuscarProductoService } from '../buscar-producto/buscar-producto.service';
+import Swal  from 'sweetalert2'; 
+import {UsuarioService} from '../buscar-usuario/usuario.service'
 
 @Component({
-  selector: 'app-crear-producto',
-  templateUrl: './crear-producto.component.html',
-  styleUrls: ['./crear-producto.component.scss']
+  selector: 'app-crear-usuario',
+  templateUrl: './crear-usuario.component.html',
+  styleUrls: ['./crear-usuario.component.scss']
 })
-export class CrearProductoComponent implements OnInit {
+export class CrearUsuarioComponent implements OnInit {
 
   @ViewChild ('p', {static: false}) crearpForm: NgForm; 
   public loading= false;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
-    private buscarProductoService :BuscarProductoService) { }
+    private usuarioService :UsuarioService) { }
 
   ngOnInit() {
     //this.crearpForm.reset();
   }
 
 
-  public nuevoP(crearproForm: NgForm){
+  public nuevoP(crearUsForm: NgForm){
     this.loading = true;
-   const formCrearP ={
-     nombre: crearproForm.form.value.nom,
-     cantPaq: crearproForm.form.value.cantPaq, 
-     pesoPaq: crearproForm.form.value.pesoPaq,
-     precio: crearproForm.form.value.precio,
-     lote: crearproForm.form.value.lote
+   const formCrear ={
+    tipoUsuario: crearUsForm.form.value.user,
+    correo: crearUsForm.form.value.email,
+    password: crearUsForm.form.value.password
    }
-   this.buscarProductoService.crearSuccesful(formCrearP).subscribe(dataFinal => {
+   this.usuarioService.crearSuccesful(formCrear).subscribe(dataFinal => {
     this.loading = true;
-    console.log(formCrearP);
+    console.log(formCrear);
     if (dataFinal.token) {
-      const tokenCifrado = this.buscarProductoService.cifrarToken(dataFinal.token)
+      const tokenCifrado = this.usuarioService.cifrarToken(dataFinal.token)
       sessionStorage.setItem(tokenCifrado.nameToken, tokenCifrado.cifrado)
       this.router.navigate(['/components/carousel'])
       this.loading = false;
@@ -57,6 +55,5 @@ export class CrearProductoComponent implements OnInit {
   this.loading = false;
   
 }
-
 
 }

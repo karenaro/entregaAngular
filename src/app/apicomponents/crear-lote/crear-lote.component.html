@@ -1,0 +1,21 @@
+<div class="form-row">
+    <form ngNativevalidate #p= "ngForm" class="form-horizontal form-material" (ngSubmit)="nuevoP(p)">
+      <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationTooltip01">capacidad</label>
+        <input ngModel type="text" class="form-control" name="cap" placeholder="Capacidad" value="" required>
+        <div class="valid-tooltip">
+          Looks good! 
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="validationTooltip02">Cantidad Minima</label>
+        <input ngModel type="number" class="form-control" name="cantMin" placeholder="Cantidad Minima" value="" required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+      </div>
+      </div>
+      <button class="btn btn-outline-danger" type="submit"> Crear </button>
+      </form>
+    </div>

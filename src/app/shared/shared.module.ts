@@ -19,6 +19,7 @@ import { SidebarLinkDirective } from './directives/sidebarlink.directive';
 import { SidebarListDirective } from './directives/sidebarlist.directive';
 import { SidebarAnchorToggleDirective } from './directives/sidebaranchortoggle.directive';
 import { SidebarToggleDirective } from './directives/sidebartoggle.directive';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
     exports: [
@@ -30,7 +31,9 @@ import { SidebarToggleDirective } from './directives/sidebartoggle.directive';
         ToggleFullscreenDirective,
         SidebarDirective,
         NgbModule,
-        TranslateModule
+        TranslateModule,
+        PipesModule
+        
     ],
     imports: [
         RouterModule,
@@ -49,7 +52,8 @@ import { SidebarToggleDirective } from './directives/sidebartoggle.directive';
         SidebarLinkDirective,
         SidebarListDirective,
         SidebarAnchorToggleDirective,
-        SidebarToggleDirective
+        SidebarToggleDirective,
+        
     ]
 })
 export class SharedModule { }

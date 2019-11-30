@@ -1,0 +1,35 @@
+<div class="form-row">
+    <form ngNativevalidate #p= "ngForm" class="form-horizontal form-material" (ngSubmit)="nuevoP(p)">
+      <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationTooltip01">Tipo Usuario</label>
+        <input ngModel type="text" class="form-control" name="tipoUsuario" placeholder="Tipo Usuari" value="" required>
+        <div class="valid-tooltip">
+          Looks good! 
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="validationTooltip02">Correo</label>
+        <input ngModel type="email" class="form-control" name="correo" placeholder="Cantidad Por Paquete" value="" required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+      </div> 
+   
+      <div class="col-md-6 mb-3">
+        <label for="validationTooltip03">Contraseñas</label>
+        <input ngModel type="password" class="form-control" name="password" placeholder="password" required>
+        <div class="invalid-tooltip">
+          Peso Invalido.
+        </div>
+      </div>
+      </div>
+      <button class="btn btn-outline-danger" type="submit"> Crear </button>
+      </form>
+    </div>
+    
+  
+  
+  
+  
+  

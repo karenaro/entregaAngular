@@ -12,15 +12,16 @@ import { Buffer } from 'buffer'
 @Injectable({
   providedIn: 'root'
 })
-export class BuscarProductoService {
+export class UsuarioService {
+
   private token; 
 
   constructor( private httpClient: HttpClientModule,
     private http: Http) { }
 
-    //Buscar Producto
+    //Buscar 
     public buscarSuccesful(data):Observable<any> {
-      let url =environment.urlWebApi+'articles';
+      let url =environment.urlWebApi+'usuarios';
       console.log(url);
         return this.http.get(url
           ,{headers : this.headersREST()})
@@ -30,9 +31,9 @@ export class BuscarProductoService {
     }
 
 
-    //Crear Producto 
+    //Crear 
     public crearSuccesful(data):Observable<any> {
-      let url =environment.urlWebApi+'article';
+      let url =environment.urlWebApi+'usuario';
       console.log(url);
         return this.http.post(url
           ,data,{headers : this.headersREST()})
@@ -93,8 +94,5 @@ export class BuscarProductoService {
     return response;
   }
 
-
-
-  
 }
  

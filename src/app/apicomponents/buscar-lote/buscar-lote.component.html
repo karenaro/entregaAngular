@@ -1,0 +1,39 @@
+<form ngNativevalidate #k= "ngForm" class="form-horizontal form-material" (ngSubmit)="buscar(k)">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+      
+        <label for="validationCustom01">Buscar Lote</label>
+        <input name="filterProducto" type="text" class="form-control" placeholder="Buscar..." [(ngModel)]="filterProducto">
+      </div>
+    </div>
+    <div class="fg-actions d-flex justify-content-between">
+        <div class="buscar-btn">
+        <div class="recover-pass"> 
+          <button class="btn btn-outline-danger" type="submit"> Buscar </button>
+          </div>
+        </div>
+      </div>
+  
+      <table class="table">
+        <thead >
+          <tr>
+            <th scope="col" name="cap" >Capacidad</th>
+            <th scope="col" name="cant" >Cant Minima</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let lote of lotes | filter:filterLote">
+            
+            <td>
+              {{ producto.capacidad }}
+            </td>
+            <td>
+              {{ producto.cantMin}}
+            </td>
+            
+          </tr>
+        </tbody>
+  
+      </table>
+  
+  </form>

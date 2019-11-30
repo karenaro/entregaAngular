@@ -1,24 +1,25 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from "@angular/router";
-import { BuscarProductoService } from './buscar-producto.service';
+import { UsuarioService } from '../buscar-usuario/usuario.service';
 import Swal  from 'sweetalert2';
 
 @Component({
-  selector: 'app-buscar-producto',
-  templateUrl: './buscar-producto.component.html',
-  styleUrls: ['./buscar-producto.component.scss']
+  selector: 'app-buscar-usuario',
+  templateUrl: './buscar-usuario.component.html',
+  styleUrls: ['./buscar-usuario.component.scss']
 })
-export class BuscarProductoComponent  {
- 
+export class BuscarUsuarioComponent implements OnInit {
+
+  
   @ViewChild('k', {static: false}) buscarForm: NgForm;
   public loading= false;
-  public productos= [];
-  filterProducto = '';
+  public usuarios= [];
+  filterUsuarios = '';
 
   constructor(private router: Router,
       private route: ActivatedRoute,
-      private buscarProductoService :BuscarProductoService) { }
+      private usuarioService :UsuarioService) { }
 
 
   ngOnInit() {
@@ -32,17 +33,16 @@ export class BuscarProductoComponent  {
   public buscar (busqueda: NgForm){
     this.loading = true;
     const buscarForm ={
-      nombre: busqueda.form.value.nombre,
-      cantPaq: busqueda.form.value.cantidad,
-      precio: busqueda.form.value.precio,
-      pesoPaq: busqueda.form.value.peso,
+      tipoUsuario: busqueda.form.value.user,
+      correo: busqueda.form.value.email,
+      password: busqueda.form.value.password
     }
   
 
-  this.buscarProductoService.buscarSuccesful(buscarForm).subscribe(dataFinal => {
+  this.usuarioService.buscarSuccesful(buscarForm).subscribe(dataFinal => {
     this.loading = true;
-   this.productos =dataFinal.articles;
-   console.log(this.productos) 
+   this.usuarios =dataFinal.articles;
+   console.log(this.usuarios) 
    
   }, 
     error => {
@@ -62,4 +62,3 @@ export class BuscarProductoComponent  {
 
 
 }
- 

@@ -15,6 +15,7 @@ export class RegisterComponent  {
   @ViewChild('f', {static: false}) registerForm: NgForm;
   public loading= false;
 
+
   constructor(private router: Router,
     private route: ActivatedRoute,
     private registerService:RegisterService){}
@@ -23,22 +24,22 @@ export class RegisterComponent  {
     onSubmit() {
         this.registerForm.reset(); 
     }
-  
 
     public registro(userRegistro: NgForm){
       this.loading = true;
-     const formLogin ={
+     const formRegistro ={
        tipoUsuario: userRegistro.form.value.user,
        correo: userRegistro.form.value.email,
        password: userRegistro.form.value.password
      }
-     this.registerService.registroSuccesful(userRegistro).subscribe(dataFinal => {
+     this.registerService.registroSuccesful(formRegistro).subscribe(dataFinal => {
       this.loading = true;
+      console.log(formRegistro);
       if (dataFinal.token) {
         console.log(userRegistro)
         const tokenCifrado = this.registerService.cifrarToken(dataFinal.token)
         sessionStorage.setItem(tokenCifrado.nameToken, tokenCifrado.cifrado)
-        this.router.navigate(['/components/carousel'])
+        this.router.navigate(['/login'])
         this.loading = false;
       }
     }, 

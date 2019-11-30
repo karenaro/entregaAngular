@@ -25,14 +25,25 @@ export class RegisterService {
     private http: Http,
     public  router: Router) { }
 
+
+  public registroSuccesful(data):Observable<any> {
+    let url =environment.urlWebApi+'usuario';
+    console.log(url);
+      return this.http.post(url
+        ,data,{headers : this.headersREST()})
+        .pipe(map(res => {
+          return res.json();
+      }), pipe(catchError(this.handleError)))
+  }
+
+  
   //headers
   private headersREST(): Headers{
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
-    myHeaders.append('access_token', localStorage.getItem('token'));
+    //myHeaders.append('access_token', localStorage.getItem('token'));
     return myHeaders;
   }
-
   private handleError(error: Response){
     const setError  = (error['_body'])? JSON.parse(error['_body']): error.statusText
     const json = {
@@ -42,16 +53,6 @@ export class RegisterService {
       Status: error.status
     };
     return Observable.throw(json);
-  }
-
-  public registroSuccesful(data):Observable<any> {
-    let url =environment.urlWebApi+'signin';
-    console.log(url);
-      return this.http.post(url
-        ,data,{headers : this.headersREST()})
-        .pipe(map(res => {
-          return res.json();
-      }), pipe(catchError(this.handleError)))
   }
 
   public cifrarToken (token) {

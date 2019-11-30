@@ -1,24 +1,24 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from "@angular/router";
-import { BuscarProductoService } from './buscar-producto.service';
+import { LoteService } from '../buscar-lote/lote.service';
 import Swal  from 'sweetalert2';
 
 @Component({
-  selector: 'app-buscar-producto',
-  templateUrl: './buscar-producto.component.html',
-  styleUrls: ['./buscar-producto.component.scss']
+  selector: 'app-buscar-lote',
+  templateUrl: './buscar-lote.component.html',
+  styleUrls: ['./buscar-lote.component.scss']
 })
-export class BuscarProductoComponent  {
- 
+export class BuscarLoteComponent implements OnInit {
+
   @ViewChild('k', {static: false}) buscarForm: NgForm;
   public loading= false;
-  public productos= [];
-  filterProducto = '';
+  public lotes= [];
+  filterLote = '';
 
   constructor(private router: Router,
       private route: ActivatedRoute,
-      private buscarProductoService :BuscarProductoService) { }
+      private loteService :LoteService) { }
 
 
   ngOnInit() {
@@ -32,17 +32,15 @@ export class BuscarProductoComponent  {
   public buscar (busqueda: NgForm){
     this.loading = true;
     const buscarForm ={
-      nombre: busqueda.form.value.nombre,
-      cantPaq: busqueda.form.value.cantidad,
-      precio: busqueda.form.value.precio,
-      pesoPaq: busqueda.form.value.peso,
+    capacidad: busqueda.form.value.cap,
+    cantMin: busqueda.form.value.cantMin
     }
   
 
-  this.buscarProductoService.buscarSuccesful(buscarForm).subscribe(dataFinal => {
+  this.loteService.buscarSuccesful(buscarForm).subscribe(dataFinal => {
     this.loading = true;
-   this.productos =dataFinal.articles;
-   console.log(this.productos) 
+   this.lotes =dataFinal.lotes;
+   console.log(this.lotes) 
    
   }, 
     error => {
@@ -62,4 +60,3 @@ export class BuscarProductoComponent  {
 
 
 }
- 

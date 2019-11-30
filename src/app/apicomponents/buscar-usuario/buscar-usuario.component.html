@@ -17,30 +17,30 @@
     <table class="table">
       <thead >
         <tr>
-          <th scope="col" name="nombre" >Nombre Producto</th>
-          <th scope="col" name="cantidad" >Cant Paquete</th>
-          <th scope="col" name="precio" >Precio</th>
-          <th scope="col" name="peso" >Peso</th>
+          <th scope="col" name="id" >id</th>
+          <th scope="col" name="tipoUsuario" >tipo Usuario</th>
+          <th scope="col" name="correo" >correo</th>
+          <th scope="col" name="password" >Contraseña</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let producto of productos | filter:filterProducto">
+        <tr *ngFor="let usuario of usuarios | filter:filterUsuarios">
           
           <td>
-            {{ producto.nombre }}
+            {{ producto._id }}
           </td>
           <td>
-            {{ producto.cantPaq}}
+            {{ producto.tipoUsuario}}
           </td>
           <td>
-            {{ producto.precio}}
+            {{ producto.correo}}
           </td>
           <td>
-            {{ producto.pesoPaq}}
+            {{ producto.password}}
           </td>
         </tr>
       </tbody>
 
     </table>
 
-</form>
+</form> 

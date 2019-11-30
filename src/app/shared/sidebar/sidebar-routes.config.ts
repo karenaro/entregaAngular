@@ -27,6 +27,17 @@ export const ROUTES: RouteInfo[] = [
                 { path: '/apicomponents/buscar-producto', title: 'Buscar Producto', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: true, submenu: [] },
                 
             ] },
+            { path: 'javascript:;', title: 'Usuarios', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false, submenu: [
+                { path: '/apicomponents/crear-usuario;', title: 'Nuevo Usuario', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: true, submenu: [] },
+                { path: '/apicomponents/buscar-usuario', title: 'Buscar Usuario', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: true, submenu: [] },
+                
+            ] },
+            { path: 'javascript:;', title: 'Lote', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false, submenu: [
+                { path: '/apicomponents/crear-lote;', title: 'Nuevo Lote', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: true, submenu: [] },
+                { path: '/apicomponents/buscar-lote', title: 'Buscar Lote', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: true, submenu: [] },
+                
+            ] },
+            
             /*
             { path: 'javascript:;', title: 'Detalle de Venta', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false, submenu: [
                 { path: 'javascript:;', title: 'Buscar', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: true, submenu: [] },

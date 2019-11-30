@@ -8,6 +8,7 @@ import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
+
 import { 
     PerfectScrollbarModule, 
     PERFECT_SCROLLBAR_CONFIG, 
@@ -28,6 +29,7 @@ import { HttpModule } from '@angular/http';
 
 
 
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true,
     wheelPropagation: false
@@ -42,7 +44,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     declarations: [
       AppComponent, 
       FullLayoutComponent, 
-      ContentLayoutComponent, 
+      ContentLayoutComponent,
      
     ],
     imports: [

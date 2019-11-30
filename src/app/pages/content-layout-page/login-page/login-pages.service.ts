@@ -33,7 +33,7 @@ export class LoginPagesService {
         ,data,{headers : this.headersREST()})
         .pipe(map(res => {
           return res.json();
-      }), pipe(catchError(this.handleError)))
+      }), pipe(catchError(this.handleError))) 
   }
  
   //headers
